@@ -4,7 +4,7 @@ import aa from "../assets/images-Pica.webp"; // CEO image
 import thiyagaraja from "../assets/thiyagaraja1.webp";
 import nalika from "../assets/NalikaMiss.webp";
 import chandani from "../assets/chandani.webp";
-import fazil from "../assets/maleImg.webp"; // Replace with correct Fazil image
+import fazil from "../assets/fazil.webp"; // Replace with correct Fazil image
 
 const OurTeamSection = () => {
   return (
