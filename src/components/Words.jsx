@@ -41,29 +41,29 @@ const LetterFromPresidentSection = () => {
   };
 
   return (
-    <section className="relative bg-white py-20 sm:py-28 px-4 sm:px-8 md:px-12 lg:px-24 font-sans overflow-hidden min-h-screen">
+    <section className="relative bg-white py-8 sm:py-2 px-4 sm:px-8 md:px-12 lg:px-24 font-sans overflow-hidden min-h-screen">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Animated Background Heading */}
-<div className="absolute top-16 sm:top-20 left-1/2 -translate-x-1/2 select-none pointer-events-none text-center w-full -z-10">
-  <motion.h1
-    className="text-[clamp(2.5rem,10vw,6rem)] sm:text-[clamp(3rem,12vw,9rem)] font-extrabold text-[#003B78] opacity-5 uppercase leading-none"
-    variants={bgHeadingVariants}
-    animate="animate"
-    aria-hidden="true"
-  >
-    CHAIRMAN’S
-  </motion.h1>
-  <motion.h1
-    className="text-[clamp(2.2rem,9vw,5.5rem)] sm:text-[clamp(2.8rem,11vw,8rem)] font-extrabold text-[#003B78] opacity-80 uppercase leading-none mt-2 sm:-mt-10"
-    variants={bgHeadingVariants}
-    animate="animate"
-    aria-hidden="true"
-    style={{ animationDirection: "reverse" }}
-  >
-    PROFILE
-  </motion.h1>
-</div>
 
+        {/* Animated Background Heading */}
+        <div className="absolute top-16 sm:top-20 left-1/2 -translate-x-1/2 select-none pointer-events-none text-center w-full -z-10">
+          <motion.h1
+            className="text-[clamp(2.5rem,10vw,6rem)] sm:text-[clamp(3rem,12vw,9rem)] font-extrabold text-[#003B78] opacity-5 uppercase leading-none"
+            variants={bgHeadingVariants}
+            animate="animate"
+            aria-hidden="true"
+          >
+            CHAIRMAN’S
+          </motion.h1>
+          <motion.h1
+            className="text-[clamp(2.2rem,9vw,5.5rem)] sm:text-[clamp(2.8rem,11vw,8rem)] font-extrabold text-[#003B78] opacity-80 uppercase leading-none mt-2 sm:-mt-10"
+            variants={bgHeadingVariants}
+            animate="animate"
+            aria-hidden="true"
+            style={{ animationDirection: "reverse" }}
+          >
+            PROFILE
+          </motion.h1>
+        </div>
 
         {/* Title Section */}
         <motion.div
@@ -83,7 +83,7 @@ const LetterFromPresidentSection = () => {
 
         {/* Main Grid Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center relative z-10">
-          {/* Image with Glow */}
+          {/* Image Section */}
           <motion.div
             className="relative rounded-3xl overflow-hidden max-w-xs sm:max-w-md mx-auto shadow-2xl"
             initial="hidden"
@@ -101,7 +101,7 @@ const LetterFromPresidentSection = () => {
             />
           </motion.div>
 
-          {/* Description Content */}
+          {/* Description Section */}
           <div className="space-y-6 text-left px-4 sm:px-0 max-w-xl mx-auto lg:mx-0">
             <motion.h3
               className="text-3xl sm:text-4xl font-bold text-[#003B78]"
@@ -116,33 +116,33 @@ const LetterFromPresidentSection = () => {
               Mr. Vinod Kumar Khandelwal
             </motion.h3>
 
-            <motion.p
-              className="text-gray-800 text-lg leading-relaxed"
+            <motion.div
+              className="space-y-6 text-justify text-[1.1rem] sm:text-[1.2rem] leading-relaxed text-gray-800"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeUp}
             >
-              Mr. Vinod Kumar Khandelwal is a respected leader and the founder of KECT Group of Companies. 
-              Born in Mumbai in 1941, he studied Mathematics and earned his MBA from the Bajaj Institute 
-              of Management in India. He began his global career in the United States in 1962 and has worked 
-              across India, the Middle East, and Sri Lanka for over 40 years.
+              <p>
+                Mr. Vinod Kumar Khandelwal is a respected leader and the founder of KECT Group of Companies. Born in Mumbai in 1941, he studied Mathematics and earned his MBA from the Bajaj Institute of Management in India.
+              </p>
+              <p>
+                He began his global career in the United States in 1962 and has worked across India, the Middle East, and Sri Lanka for over 40 years. His portfolio includes major achievements like the tallest residential building in Asia and key infrastructure developments in the Gulf.
+              </p>
+              <p>
+                From 1976 to 1980, he managed international projects in Bahrain, Iraq, Kuwait, Saudi Arabia, and the UAE. In Sri Lanka, he collaborated with prominent companies such as Bartleet and the Maharaja Organization, playing a vital role in building the World Trade Center in Colombo.
+              </p>
+              <p>
+                Beyond infrastructure, Mr. Khandelwal has initiated corporate social responsibility projects focused on elderly care and children’s education.
+              </p>
+              <p>
+                Today, he continues to guide KECT Group with an unwavering commitment to quality, innovation, and ethical leadership.
+              </p>
+            </motion.div>
 
-              He has led many major projects, including the tallest residential building in Asia and key 
-              infrastructure in the Gulf. From 1976 to 1980, he managed international projects in Bahrain, 
-              Iraq, Kuwait, Saudi Arabia, and the UAE.
-
-              In Sri Lanka, he partnered with companies like Bartleet and Maharaja Organization, 
-              helped build the World Trade Center in Colombo, and started CSR projects for elderly care and 
-              children’s education.
-
-              Mr. Khandelwal continues to lead KECT Group with a strong focus on quality, innovation, 
-              and ethical values.
-            </motion.p>
-
-            {/* Button */}
+            {/* View More Button */}
             <motion.div
-              className="pt-8"
+              className="pt-4"
               custom={7}
               initial="hidden"
               whileInView="visible"
@@ -165,3 +165,4 @@ const LetterFromPresidentSection = () => {
 };
 
 export default LetterFromPresidentSection;
+
