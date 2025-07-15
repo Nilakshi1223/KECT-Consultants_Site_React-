@@ -4,17 +4,13 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import { motion } from "framer-motion";
-import { FaShieldAlt } from "react-icons/fa";
-import { MdDescription } from "react-icons/md";
-import { FaUsersCog } from "react-icons/fa";
-import { MdVerifiedUser } from "react-icons/md";
-import { MdThumbUp } from "react-icons/md";
-import { FaBan } from "react-icons/fa";
-import { MdAutorenew } from "react-icons/md";
-import { MdSpeed } from "react-icons/md";
-import { MdLocalShipping } from "react-icons/md";
-import { FaGlobeAmericas } from "react-icons/fa";
-import { MdForum } from "react-icons/md";
+import {
+  FaShieldAlt, FaUsersCog, FaBan, FaGlobeAmericas
+} from "react-icons/fa";
+import {
+  MdVerifiedUser, MdThumbUp, MdAutorenew, MdSpeed,
+  MdLocalShipping, MdDescription, MdForum
+} from "react-icons/md";
 
 import Logo from '../../assets/ISO13485-Logo.webp';
 
@@ -25,83 +21,235 @@ const fadeUpVariant = {
 
 const ISO1385Benefits = () => {
   const renderCard = (title, description, IconComponent, number) => (
-    <motion.div
+    <Box
+      key={number}
+      component={motion.div}
       variants={fadeUpVariant}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      style={{ flex: '1 1 300px', maxWidth: 550, boxSizing: 'border-box' }}
+      sx={{
+        flex: { xs: "1 1 100%", sm: "1 1 45%" },
+        maxWidth: { xs: "100%", sm: "45%" },
+        boxSizing: "border-box",
+        mb: 3,
+      }}
     >
-      <Card
-        sx={{
-          width: '100%',
-          height: {
-          xs: 'auto',    // for small screens height auto
-          sm: 250       // for larger screens fixed height 250px
-    },
-          position: "relative",
-          paddingTop: 4,
-          boxSizing: 'border-box'
-        }}
+      <Box
+        component={motion.div}
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+        variants={{ rest: {}, hover: {} }}
+        sx={{ position: "relative", width: "100%", height: { xs: "auto", sm: 275 } }}
       >
-        <CardContent sx={{ position: "relative" }}>
+        <Card
+          component={motion.div}
+          sx={{
+            width: "100%",
+            height: "100%",
+            position: "relative",
+            paddingTop: 4,
+            overflow: "hidden",
+            boxSizing: "border-box",
+          }}
+        >
+          {/* Blue quarter overlay */}
           <Box
+            component={motion.div}
+            variants={{
+              rest: { width: "60px", height: "60px", top: 0, right: 0 },
+              hover: { width: "100%", height: "100%", top: 0, right: 0 },
+            }}
+            transition={{ duration: 0.5 }}
             sx={{
               position: "absolute",
-              top: 2,
-              left: 20,
-              width: 48,
-              height: 48,
-              bgcolor: "rgb(185, 228, 248)",
-              borderRadius: "12px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "rgb(25, 118, 210)",
-              fontSize: "1.8rem"
+              backgroundColor: "rgba(25, 118, 210, 0.95)",
+              zIndex: 1,
+              borderBottomLeftRadius: "80px",
             }}
-          >
-            <IconComponent />
-          </Box>
+          />
 
-          <Typography
-            variant="h6"
+          <CardContent
             sx={{
-              position: "absolute",
-              top: 5,
-              right: 30,
-              bgcolor: "rgb(185, 228, 248)",
-              color: "rgb(139, 142, 143)",
-              px: 1,
-              py: 0.5,
-              borderRadius: "12px",
-              fontWeight: "bold",
-              fontSize: "0.870rem",
-              display: "inline-block",
-              minWidth: "28px",
-              textAlign: "center"
+              position: "relative",
+              zIndex: 2,
+              height: "100%",
+              color: "inherit",
             }}
           >
-            {number}
-          </Typography>
+            {/* Icon */}
+            <Box
+              component={motion.div}
+              variants={{
+                rest: {
+                  color: "rgb(25, 118, 210)",
+                  backgroundColor: "rgb(185, 228, 248)",
+                },
+                hover: {
+                  color: "#FFD700",
+                  backgroundColor: "rgb(4, 19, 145)",
+                },
+              }}
+              transition={{ duration: 0.4 }}
+              sx={{
+                position: "absolute",
+                top: 2,
+                left: 20,
+                width: 48,
+                height: 48,
+                borderRadius: "12px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.8rem",
+                zIndex: 2,
+              }}
+            >
+              <IconComponent />
+            </Box>
 
-          <br />
+            {/* Number Badge */}
+            <Typography
+              component={motion.div}
+              variants={{
+                rest: {
+                  color: "rgb(139, 142, 143)",
+                  backgroundColor: "rgb(185, 228, 248)",
+                },
+                hover: {
+                  color: "#FFD700",
+                  backgroundColor: "rgb(4, 19, 145)",
+                },
+              }}
+              transition={{ duration: 0.4 }}
+              variant="h6"
+              sx={{
+                position: "absolute",
+                top: 5,
+                right: 30,
+                px: 1,
+                py: 0.5,
+                borderRadius: "12px",
+                fontWeight: "bold",
+                fontSize: "0.87rem",
+                display: "inline-block",
+                minWidth: "28px",
+                textAlign: "center",
+                zIndex: 2,
+              }}
+            >
+              {number}
+            </Typography>
 
-          <Typography
-            gutterBottom
-            variant="h6"
-            component="div"
-            sx={{ fontWeight: "bold", mt: 5, mb: 0.5, color: "rgb(34, 65, 65)" }}
-          >
-            {title}
-          </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
-            {description}
-          </Typography>
-        </CardContent>
-      </Card>
-    </motion.div>
+            <br />
+
+            {/* Title */}
+            <Typography
+              variant="h6"
+              component={motion.div}
+              variants={{
+                rest: { color: "rgb(34, 65, 65)" },
+                hover: { color: "#FFFFFF" },
+              }}
+              transition={{ duration: 0.4 }}
+              sx={{ fontWeight: "bold", mt: 5, mb: 0.5 }}
+            >
+              {title}
+            </Typography>
+
+            {/* Description */}
+            <motion.div
+              variants={{
+                rest: { color: "rgba(80, 80, 80, 1)" },
+                hover: { color: "#FFFFFF" },
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              <Typography variant="body2" sx={{ zIndex: 2 }}>
+                {description}
+              </Typography>
+            </motion.div>
+          </CardContent>
+        </Card>
+      </Box>
+    </Box>
   );
+
+  const cards = [
+    {
+      title: " Regulatory Compliance",
+      description: " ISO 13485 helps medical device manufacturers comply with regulatory requirements in different regions, such as the FDA or EMA.",
+      IconComponent: MdVerifiedUser,
+      number: "01"
+    },
+    {
+      title: "Improved Product Safety and Quality",
+      description: " By implementing ISO 13485, manufacturers can establish systematic processes to ensure safety and quality.",
+      IconComponent: FaShieldAlt,
+      number: "02"
+    },
+    {
+      title: " Enhanced Customer Confidence",
+      description: "Provides assurance that devices are produced in a consistent, regulated manner.",
+      IconComponent: MdThumbUp,
+      number: "03"
+    },
+    {
+      title: " Reduced Risk of Recalls",
+      description: "Establishes robust processes to reduce likelihood of defects or recalls.",
+      IconComponent: FaBan,
+      number: "04"
+    },
+    {
+      title: "Better Risk Management",
+      description: "Covers risk management throughout product lifecycle to ensure safety.",
+      IconComponent: FaShieldAlt,
+      number: "05"
+    },
+    {
+      title: " Continuous Improvement",
+      description: "Encourages continuous process monitoring and improvements.",
+      IconComponent: MdAutorenew,
+      number: "06"
+    },
+    {
+      title: "Improved Operational Efficiency",
+      description: "Emphasizes defined processes, documentation, and risk management.",
+      IconComponent: MdSpeed,
+      number: "07"
+    },
+    {
+      title: "Supply Chain Management",
+      description: "Requires control over supply chain for consistent quality.",
+      IconComponent: MdLocalShipping,
+      number: "08"
+    },
+    {
+      title: "Global Market Access",
+      description: "Certification enables entry into international medical markets.",
+      IconComponent: FaGlobeAmericas,
+      number: "09"
+    },
+    {
+      title: "Clear Documentation and Traceability",
+      description: "Ensures all design, development, and manufacturing steps are traceable.",
+      IconComponent: MdDescription,
+      number: "10"
+    },
+    {
+      title: "Employee Involvement and Accountability",
+      description: "Promotes engagement and a culture of quality within teams.",
+      IconComponent: FaUsersCog,
+      number: "11"
+    },
+    {
+      title: "Improved Internal Communication",
+      description: "Boosts coordination across design, production, and compliance teams.",
+      IconComponent: MdForum,
+      number: "12"
+    }
+  ];
 
   return (
     <div
@@ -157,14 +305,13 @@ const ISO1385Benefits = () => {
         >
           <motion.img
             src={Logo}
-            alt="ISO 9001:2015 Logo"
+            alt="ISO 13485 Logo"
             style={{
               display: "block",
               margin: "0 auto",
               maxWidth: "300px",
               height: "auto",
               borderRadius: "200px"
-              
             }}
             whileHover={{
               opacity: 1,
@@ -178,21 +325,19 @@ const ISO1385Benefits = () => {
               duration: 0.8
             }}
           />
-
           <br />
           <p
             className="mt-4 font-[Helvetica] text-center"
             style={{ fontSize: "1.2rem", color: "#5A5A5A" }}
           >
-            Empower your medical device business with <br></br>ISO 13485:2016 — ensuring safety, quality, and regulatory confidence at every stage of the product<br></br>
-         
-            lifecycle.
+            Empower your medical device business with <br />
+            ISO 13485:2016 — ensuring safety, quality, and regulatory confidence
+            at every stage of the product lifecycle.
           </p>
           <br />
         </motion.div>
 
-        {/* Cards rows */}
-        {[0, 1, 2, 3, 4].map((rowIndex) => (
+        {[0, 1, 2, 3, 4, 5].map((rowIndex) => (
           <Box
             key={rowIndex}
             sx={{
@@ -203,97 +348,13 @@ const ISO1385Benefits = () => {
               gap: "50px"
             }}
           >
-            {(() => {
-              const cardsPerRow = 2;
-              const startIndex = rowIndex * cardsPerRow;
-              const cards = [
-                {
-                  title: " Regulatory Compliance",
-                  description: " ISO 13485 helps medical device manufacturers comply with regulatory requirements in diferent regions, such as the FDA (Food and Drug Administration) in the U.S. or the European Medicines Agency (EMA) in Europe.",
-                  IconComponent: MdVerifiedUser,
-                  number: "01"
-                },
-                {
-                  title: "Improved Product Safety and Quality",
-                  description: " By implementing ISO 13485, manufacturers can establish systematic processes to ensure the safety and quality of their medical devices. ",
-                  IconComponent: FaShieldAlt,
-                  number: "02"
-                },
-                {
-                  title: " Enhanced Customer Confidence",
-                  description: "ISO 13485 certification provides assurance to customers, healthcare providers, and patients that the medical devices are produced in a controlled and consistent manner, meeting stringent quality and regulatory standards. ",
-                  IconComponent: MdThumbUp,
-                  number: "03"
-                },
-                {
-                  title: " Reduced Risk of Recalls",
-                  description: " ISO 13485 requires manufacturers to establish robust processes for design, production, and post-market surveillance, which can significantly reduce the likelihood of product defects or safety issues that could lead to costly product recalls.",
-                  IconComponent: FaBan,
-                  number: "04"
-                },
-                {
-                  title: "Better Risk Management",
-                  description: " ISO 13485 includes specific requirements for risk management throughout the lifecycle of a medical device, from design to post-market. This helps identify, assess, and mitigate potential risks to patient safety, ensuring that the devices are both safe and efective.",
-                  IconComponent: FaShieldAlt,
-                  number: "05"
-                },
-                {
-                  title: " Continuous Improvement",
-                  description: " ISO 13485 promotes a culture of continuous improvement by encouraging organizations to monitor, measure, and improve their processes.",
-                  IconComponent: MdAutorenew,
-                  number: "06"
-                },
-                {
-                  title: "Improved Operational Efficiency",
-                  description: " The standard emphasizes the importance of well-defined processes, clear documentation, and risk management.",
-                  IconComponent: MdSpeed,
-                  number: "07"
-                },
-                {
-                  title: "Supply Chain Management",
-                  description: "ISO 13485 requires manufacturers to establish control over their supply chain to ensure the quality of materials and components. ",
-                  IconComponent: MdLocalShipping,
-                  number: "08"
-                },
-                {
-                  title: "Global Market Access",
-                  description: " ISO 13485 is recognized internationally, and certification can help medical device manufacturers enter new markets.",
-                  IconComponent: FaGlobeAmericas,
-                  number: "09"
-                },
-                {
-                  title: "Clear Documentation and Traceability",
-                  description: " ISO 13485 emphasizes the importance of detailed documentation and traceability, ensuring that all aspects of product design, development, and manufacturing are well-documented.",
-                  IconComponent: MdDescription,
-                  number: "10"
-                },
-                {
-                  title: " Employee Involvement and Accountability",
-                  description: "  ISO 13485 encourages organizations to involve employees in maintaining quality standards and encourages accountability at all levels. This can lead to higher engagement, better morale, and a culture of quality within the company.",
-                  IconComponent: FaUsersCog,
-                  number: "11"
-                },
-                {
-                  title: "Improved Internal Communication",
-                  description: " The QMS structure outlined in ISO 13485 encourages clear communication across departments, improving coordination between design, production, quality control, and regulatory teams.",
-                  IconComponent: MdForum,
-                  number: "12"
-                }
-              ];
-
-              return (
-                <>
-                  {cards.slice(startIndex, startIndex + cardsPerRow).map(({ title, description, IconComponent, number }) =>
-                    renderCard(title, description, IconComponent, number)
-                  )}
-                </>
-              );
-            })()}
+            {cards
+              .slice(rowIndex * 2, rowIndex * 2 + 2)
+              .map(({ title, description, IconComponent, number }) =>
+                renderCard(title, description, IconComponent, number)
+              )}
           </Box>
         ))}
-
-        <br />
-        <br />
       </div>
     </div>
   );

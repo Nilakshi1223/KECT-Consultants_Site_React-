@@ -12,74 +12,164 @@ import Logo from '../../assets/ISO14001-Logo.webp';
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
-const ISO14001Benefits = () => {
+const ISO45001Benefits = () => {
   const renderCard = (title, description, IconComponent, number) => (
-    <motion.div
+    <Box
+      key={number}
+      component={motion.div}
       variants={fadeUpVariant}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      style={{ width: "100%", maxWidth: "550px" }}
+      sx={{
+        flex: { xs: "1 1 100%", sm: "1 1 45%" },
+        maxWidth: { xs: "100%", sm: "45%" },
+        boxSizing: "border-box",
+        mb: 3,
+      }}
     >
-      <Card sx={{ width: "100%", height: "auto", minHeight: 200, position: "relative", paddingTop: 4 }}>
-        <CardContent sx={{ position: "relative" }}>
+      <Box
+        component={motion.div}
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+        variants={{ rest: {}, hover: {} }}
+        sx={{ position: "relative", width: "100%", height: { xs: "auto", sm: 275 } }}
+      >
+        <Card
+          component={motion.div}
+          sx={{
+            width: "100%",
+            height: "100%",
+            position: "relative",
+            paddingTop: 4,
+            overflow: "hidden",
+            boxSizing: "border-box",
+          }}
+        >
+          {/* Blue quarter overlay */}
           <Box
+            component={motion.div}
+            variants={{
+              rest: { width: "60px", height: "60px", top: 0, right: 0 },
+              hover: { width: "100%", height: "100%", top: 0, right: 0 },
+            }}
+            transition={{ duration: 0.5 }}
             sx={{
               position: "absolute",
-              top: 2,
-              left: 20,
-              width: 48,
-              height: 48,
-              bgcolor: "rgb(185, 228, 248)",
-              borderRadius: "12px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "rgb(25, 118, 210)",
-              fontSize: "1.8rem"
+              backgroundColor: "rgba(25, 118, 210, 0.95)",
+              zIndex: 1,
+              borderBottomLeftRadius: "80px",
             }}
-          >
-            <IconComponent />
-          </Box>
+          />
 
-          <Typography
-            variant="h6"
+          <CardContent
             sx={{
-              position: "absolute",
-              top: 5,
-              right: 30,
-              bgcolor: "rgb(185, 228, 248)",
-              color: "rgb(139, 142, 143)",
-              px: 1,
-              py: 0.5,
-              borderRadius: "12px",
-              fontWeight: "bold",
-              fontSize: "0.870rem",
-              display: "inline-block",
-              minWidth: "28px",
-              textAlign: "center"
+              position: "relative",
+              zIndex: 2,
+              height: "100%",
+              color: "inherit",
             }}
           >
-            {number}
-          </Typography>
+            {/* Icon */}
+            <Box
+              component={motion.div}
+              variants={{
+                rest: {
+                  color: "rgb(25, 118, 210)",
+                  backgroundColor: "rgb(185, 228, 248)",
+                },
+                hover: {
+                  color: "#FFD700",
+                  backgroundColor: "rgb(4, 19, 145)",
+                },
+              }}
+              transition={{ duration: 0.4 }}
+              sx={{
+                position: "absolute",
+                top: 2,
+                left: 20,
+                width: 48,
+                height: 48,
+                borderRadius: "12px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.8rem",
+                zIndex: 2,
+              }}
+            >
+              <IconComponent />
+            </Box>
 
-          <Typography
-            gutterBottom
-            variant="h6"
-            component="div"
-            sx={{ fontWeight: "bold", mt: 5, mb: 0.5, color: "rgb(34, 65, 65)" }}
-          >
-            {title}
-          </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary" }}>
-            {description}
-          </Typography>
-        </CardContent>
-      </Card>
-    </motion.div>
+            {/* Number Badge */}
+            <Typography
+              component={motion.div}
+              variants={{
+                rest: {
+                  color: "rgb(139, 142, 143)",
+                  backgroundColor: "rgb(185, 228, 248)",
+                },
+                hover: {
+                  color: "#FFD700",
+                  backgroundColor: "rgb(4, 19, 145)",
+                },
+              }}
+              transition={{ duration: 0.4 }}
+              variant="h6"
+              sx={{
+                position: "absolute",
+                top: 5,
+                right: 30,
+                px: 1,
+                py: 0.5,
+                borderRadius: "12px",
+                fontWeight: "bold",
+                fontSize: "0.87rem",
+                display: "inline-block",
+                minWidth: "28px",
+                textAlign: "center",
+                zIndex: 2,
+              }}
+            >
+              {number}
+            </Typography>
+
+            <br />
+
+            {/* Title */}
+            <Typography
+              variant="h6"
+              component={motion.div}
+              variants={{
+                rest: { color: "rgb(34, 65, 65)" },
+                hover: { color: "#FFFFFF" },
+              }}
+              transition={{ duration: 0.4 }}
+              sx={{ fontWeight: "bold", mt: 5, mb: 0.5 }}
+            >
+              {title}
+            </Typography>
+
+            {/* Description */}
+            <motion.div
+              variants={{
+                rest: { color: "rgba(80, 80, 80, 1)" },
+                hover: { color: "#FFFFFF" },
+              }}
+              transition={{ duration: 0.4 }}
+            >
+              <Typography variant="body2" sx={{ zIndex: 2 }}>
+                {description}
+              </Typography>
+            </motion.div>
+          </CardContent>
+        </Card>
+      </Box>
+    </Box>
   );
 
   return (
@@ -90,13 +180,14 @@ const ISO14001Benefits = () => {
         margin: 0,
         padding: 0,
         minHeight: "100vh",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
       }}
     >
       <div
-        className="py-16 max-w-7xl mx-auto text-left"
-        style={{ paddingLeft: "5%", paddingRight: "5%" }}
+        className="py-16 max-w-5xl mx-auto text-left"
+        style={{ paddingLeft: "24px", paddingRight: "24px" }}
       >
+        {/* Title */}
         <motion.div
           variants={fadeUpVariant}
           initial="hidden"
@@ -110,7 +201,7 @@ const ISO14001Benefits = () => {
               mb: 3,
               color: "rgb(14, 43, 68)",
               mt: 8,
-              textAlign: "center"
+              textAlign: "center",
             }}
           >
             Rewards You Will Get After ISO 14001:2015 <br />
@@ -122,12 +213,12 @@ const ISO14001Benefits = () => {
               height: "4px",
               backgroundColor: "rgb(19, 30, 182)",
               border: "none",
-              margin: "20px auto",
-              marginBottom: "50px"
+              margin: "20px auto 50px auto",
             }}
           />
         </motion.div>
 
+        {/* Logo */}
         <motion.div
           variants={fadeUpVariant}
           initial="hidden"
@@ -136,26 +227,18 @@ const ISO14001Benefits = () => {
         >
           <motion.img
             src={Logo}
-            alt="ISO 14001:2015 Logo"
+            alt="ISO 45001 Logo"
             style={{
               display: "block",
               margin: "0 auto",
-              maxWidth: "90%",
-              width: "400px",
+              maxWidth: "300px",
+              width: "100%",
               height: "auto",
-              borderRadius: "200px"
+              borderRadius: "200px",
             }}
-            whileHover={{
-              opacity: 1,
-              scale: 1.05
-            }}
-            initial={{
-              opacity: 1,
-              scale: 1
-            }}
-            transition={{
-              duration: 0.8
-            }}
+            whileHover={{ opacity: 1, scale: 1.05 }}
+            initial={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
           />
           <br />
           <p
@@ -170,14 +253,14 @@ const ISO14001Benefits = () => {
           <br />
         </motion.div>
 
-        {/* Cards rows */}
+        {/* Cards */}
         <Box
           sx={{
             display: "flex",
-            justifyContent: "center",
-            mt: 5,
+            justifyContent: "space-between",
             flexWrap: "wrap",
-            gap: "30px"
+            gap: { xs: "20px", sm: "30px", md: "40px" },
+            mt: 5,
           }}
         >
           {renderCard(
@@ -261,4 +344,4 @@ const ISO14001Benefits = () => {
   );
 };
 
-export default ISO14001Benefits;
+export default ISO45001Benefits;

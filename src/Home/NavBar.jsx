@@ -81,7 +81,8 @@ const Navbar = () => {
       currentPath.startsWith("/iso") ||
       currentPath === "/gmpMain" ||
       currentPath === "/hacpMain" ||
-      currentPath === "/ceMain"
+      currentPath === "/ceMain" ||
+      currentPath === "/fssc22000Main"
     ) {
       setActiveLink("services");
     } else {
@@ -135,15 +136,13 @@ const Navbar = () => {
     { title: "GMP Service", route: "/gmpMain" },
     { title: "HACCP", route: "/hacpMain" },
     { title: "CE Marking", route: "/ceMain" },
+    { title: "FSSC 22000", route: "/fssc22000Main" }, // ✅ Newly added
   ];
 
   return (
     <nav ref={navRef} className="bg-white shadow sticky top-0 z-50">
       <div className="max-w-full px-6 py-2 flex justify-between items-center">
-        <div
-          className="flex items-center cursor-pointer"
-          onClick={() => handleLinkClick("home")}
-        >
+        <div className="flex items-center cursor-pointer" onClick={() => handleLinkClick("home")}>
           <img src={logo} alt="Logo" className="h-12 object-contain mr-2" />
           <span className="text-xl font-bold text-[#003B73]">KECT Consultants</span>
         </div>
@@ -250,115 +249,103 @@ const Navbar = () => {
         </div>
       </div>
 
-      
-   {/* Mobile Menu (only shown if isOpen) */}
-{isOpen && (
-  <div className="md:hidden flex flex-col bg-white shadow px-6 py-4 space-y-4 text-gray-700 text-base">
-    {sections.map((section) => {
-      if (section === "about") {
-        const isAboutOpen = activeLink === "about";
-
-        return (
-          <div key="about" className="flex flex-col relative">
-            <button
-              onClick={() => setActiveLink(isAboutOpen ? "home" : "about")}
-              className={`text-left flex items-center justify-between ${
-                isAboutOpen ? "text-[#003B73] font-semibold" : "text-gray-700"
-              }`}
-            >
-              About
-              <span className="ml-2 text-xl">{isAboutOpen ? "−" : "+"}</span>
-            </button>
-
-            {/* Submenu appears inline next to About */}
-            {isAboutOpen && (
-              <div className="flex flex-row overflow-x-auto mt-2 space-x-4 px-2">
-                {aboutSubSections.map((item) => (
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden flex flex-col bg-white shadow px-6 py-4 space-y-4 text-gray-700 text-base">
+          {sections.map((section) => {
+            if (section === "about") {
+              const isAboutOpen = activeLink === "about";
+              return (
+                <div key="about" className="flex flex-col relative">
                   <button
-                    key={item.id}
-                    onClick={() => {
-                      handleAboutSubLink(item.id);
-                      setIsOpen(false);
-                    }}
-                    className="whitespace-nowrap px-3 py-1 rounded bg-blue-100 text-blue-700 text-sm hover:bg-blue-200"
+                    onClick={() => setActiveLink(isAboutOpen ? "home" : "about")}
+                    className={`text-left flex items-center justify-between ${
+                      isAboutOpen ? "text-[#003B73] font-semibold" : "text-gray-700"
+                    }`}
                   >
-                    {item.title}
+                    About
+                    <span className="ml-2 text-xl">{isAboutOpen ? "−" : "+"}</span>
                   </button>
-                ))}
-              </div>
-            )}
-          </div>
-        );
-      }
+                  {isAboutOpen && (
+                    <div className="flex flex-row overflow-x-auto mt-2 space-x-4 px-2">
+                      {aboutSubSections.map((item) => (
+                        <button
+                          key={item.id}
+                          onClick={() => {
+                            handleAboutSubLink(item.id);
+                            setIsOpen(false);
+                          }}
+                          className="whitespace-nowrap px-3 py-1 rounded bg-blue-100 text-blue-700 text-sm hover:bg-blue-200"
+                        >
+                          {item.title}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
 
-      if (section === "services") {
-        const isServicesOpen = activeLink === "services";
+            if (section === "services") {
+              const isServicesOpen = activeLink === "services";
+              return (
+                <div key="services" className="flex flex-col relative">
+                  <button
+                    onClick={() => setActiveLink(isServicesOpen ? "home" : "services")}
+                    className={`text-left flex items-center justify-between ${
+                      isServicesOpen ? "text-[#003B73] font-semibold" : "text-gray-700"
+                    }`}
+                  >
+                    Services
+                    <span className="ml-2 text-xl">{isServicesOpen ? "−" : "+"}</span>
+                  </button>
+                  {isServicesOpen && (
+                    <div className="flex flex-col gap-3 mt-2 px-2">
+                      {subServices.map((item) => (
+                        <div key={item.title} className="flex flex-col min-w-max">
+                          <Link
+                            to={item.route}
+                            onClick={() => setIsOpen(false)}
+                            className="whitespace-nowrap px-3 py-1 rounded bg-blue-100 text-blue-700 text-sm hover:bg-blue-200"
+                          >
+                            {item.title}
+                          </Link>
+                          {item.submenu && (
+                            <div className="flex flex-col mt-1 space-y-1 px-1">
+                              {item.submenu.map((subItem) => (
+                                <Link
+                                  key={subItem.title}
+                                  to={subItem.route}
+                                  onClick={() => setIsOpen(false)}
+                                  className="whitespace-nowrap px-2 py-0.5 rounded bg-blue-50 text-blue-600 text-xs hover:bg-blue-100"
+                                >
+                                  {subItem.title}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            }
 
-        return (
-          <div key="services" className="flex flex-col relative">
-            <button
-              onClick={() => setActiveLink(isServicesOpen ? "home" : "services")}
-              className={`text-left flex items-center justify-between ${
-                isServicesOpen ? "text-[#003B73] font-semibold" : "text-gray-700"
-              }`}
-            >
-              Services
-              <span className="ml-2 text-xl">{isServicesOpen ? "−" : "+"}</span>
-            </button>
-
-            {/* Submenu appears inline next to Services */}
-{isServicesOpen && (
-  <div className="flex flex-col gap-3 mt-2 px-2">
-    {subServices.map((item) => (
-      <div key={item.title} className="flex flex-col min-w-max">
-        <Link
-          to={item.route}
-          onClick={() => setIsOpen(false)}
-          className="whitespace-nowrap px-3 py-1 rounded bg-blue-100 text-blue-700 text-sm hover:bg-blue-200"
-        >
-          {item.title}
-        </Link>
-
-        {item.submenu && (
-          <div className="flex flex-col mt-1 space-y-1 px-1">
-            {item.submenu.map((subItem) => (
-              <Link
-                key={subItem.title}
-                to={subItem.route}
-                onClick={() => setIsOpen(false)}
-                className="whitespace-nowrap px-2 py-0.5 rounded bg-blue-50 text-blue-600 text-xs hover:bg-blue-100"
+            return (
+              <button
+                key={section}
+                onClick={() => handleLinkClick(section)}
+                className={`text-left ${
+                  activeLink === section ? "text-[#003B73] font-semibold" : "text-gray-700"
+                }`}
               >
-                {subItem.title}
-              </Link>
-            ))}
-          </div>
-        )}
-      </div>
-    ))}
-  </div>
-)}
-
-
-          </div>
-        );
-      }
-
-      // Other sections
-      return (
-        <button
-          key={section}
-          onClick={() => handleLinkClick(section)}
-          className={`text-left ${
-            activeLink === section ? "text-[#003B73] font-semibold" : "text-gray-700"
-          }`}
-        >
-          {section.charAt(0).toUpperCase() + section.slice(1)}
-        </button>
-      );
-    })}
-  </div>
-)}
-
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            );
+          })}
+        </div>
+      )}
     </nav>
   );
 };

@@ -23,61 +23,111 @@ const ISO19011Benefits = () => {
   const renderCard = (title, description, IconComponent, number) => (
     <Box
       key={number}
+      component={motion.div}
+      variants={fadeUpVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
       sx={{
-        paddingX: 1,
+        flex: { xs: "1 1 100%", sm: "1 1 45%" },
+        maxWidth: { xs: "100%", sm: "45%" },
         boxSizing: "border-box",
         mb: 3,
-        display: 'flex',
-        justifyContent: 'center',
-        width: "100%",  // full width inside grid cell
       }}
     >
-      <motion.div
-        variants={fadeUpVariant}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        style={{ width: "100%" }}
+      <Box
+        component={motion.div}
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+        variants={{ rest: {}, hover: {} }}
+        sx={{ position: "relative", width: "100%", height: { xs: "auto", sm: 275 } }}
       >
         <Card
+          component={motion.div}
           sx={{
-            width: "100%",    // full width inside wrapper
-            minHeight: 200,
+            width: "100%",
+            height: "100%",
             position: "relative",
             paddingTop: 4,
-            boxSizing: "border-box"
+            overflow: "hidden",
+            boxSizing: "border-box",
           }}
         >
-          <CardContent sx={{ position: "relative" }}>
+          {/* Blue quarter overlay */}
+          <Box
+            component={motion.div}
+            variants={{
+              rest: { width: "60px", height: "60px", top: 0, right: 0 },
+              hover: { width: "100%", height: "100%", top: 0, right: 0 },
+            }}
+            transition={{ duration: 0.5 }}
+            sx={{
+              position: "absolute",
+              backgroundColor: "rgba(25, 118, 210, 0.95)",
+              zIndex: 1,
+              borderBottomLeftRadius: "80px",
+            }}
+          />
+
+          <CardContent
+            sx={{
+              position: "relative",
+              zIndex: 2,
+              height: "100%",
+              color: "inherit",
+            }}
+          >
+            {/* Icon */}
             <Box
+              component={motion.div}
+              variants={{
+                rest: {
+                  color: "rgb(25, 118, 210)",
+                  backgroundColor: "rgb(185, 228, 248)",
+                },
+                hover: {
+                  color: "#FFD700",
+                  backgroundColor: "rgb(4, 19, 145)",
+                },
+              }}
+              transition={{ duration: 0.4 }}
               sx={{
                 position: "absolute",
-                top: { xs: 4, sm: 2 },
-                left: { xs: 16, sm: 20 },
-                width: { xs: 40, sm: 48 },
-                height: { xs: 40, sm: 48 },
-                bgcolor: "rgb(185, 228, 248)",
+                top: 2,
+                left: 20,
+                width: 48,
+                height: 48,
                 borderRadius: "12px",
-                display: "grid",
+                display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "rgb(25, 118, 210)",
-                fontSize: { xs: "1.4rem", sm: "1.8rem" },
-                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                fontSize: "1.8rem",
+                zIndex: 2,
               }}
             >
               <IconComponent />
             </Box>
 
+            {/* Number Badge */}
             <Typography
+              component={motion.div}
+              variants={{
+                rest: {
+                  color: "rgb(139, 142, 143)",
+                  backgroundColor: "rgb(185, 228, 248)",
+                },
+                hover: {
+                  color: "#FFD700",
+                  backgroundColor: "rgb(4, 19, 145)",
+                },
+              }}
+              transition={{ duration: 0.4 }}
               variant="h6"
               sx={{
                 position: "absolute",
                 top: 5,
                 right: 30,
-                bgcolor: "rgb(185, 228, 248)",
-                color: "rgb(139, 142, 143)",
                 px: 1,
                 py: 0.5,
                 borderRadius: "12px",
@@ -85,7 +135,8 @@ const ISO19011Benefits = () => {
                 fontSize: "0.87rem",
                 display: "inline-block",
                 minWidth: "28px",
-                textAlign: "center"
+                textAlign: "center",
+                zIndex: 2,
               }}
             >
               {number}
@@ -93,32 +144,35 @@ const ISO19011Benefits = () => {
 
             <br />
 
+            {/* Title */}
             <Typography
-              gutterBottom
               variant="h6"
-              component="div"
-              sx={{
-                fontWeight: "bold",
-                mt: 5,
-                mb: 0.5,
-                color: "rgb(34, 65, 65)",
-                fontSize: { xs: "1rem", sm: "1.2rem", md: "1.3rem" }
+              component={motion.div}
+              variants={{
+                rest: { color: "rgb(34, 65, 65)" },
+                hover: { color: "#FFFFFF" },
               }}
+              transition={{ duration: 0.4 }}
+              sx={{ fontWeight: "bold", mt: 5, mb: 0.5 }}
             >
               {title}
             </Typography>
-            <Typography
-              variant="body2"
-              sx={{
-                color: "text.secondary",
-                fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" }
+
+            {/* Description */}
+            <motion.div
+              variants={{
+                rest: { color: "rgba(80, 80, 80, 1)" },
+                hover: { color: "#FFFFFF" },
               }}
+              transition={{ duration: 0.4 }}
             >
-              {description}
-            </Typography>
+              <Typography variant="body2" sx={{ zIndex: 2 }}>
+                {description}
+              </Typography>
+            </motion.div>
           </CardContent>
         </Card>
-      </motion.div>
+      </Box>
     </Box>
   );
 
@@ -134,8 +188,8 @@ const ISO19011Benefits = () => {
       }}
     >
       <div
-        className="py-16 max-w-7xl mx-auto text-left"
-        style={{ paddingLeft: "16px", paddingRight: "16px" }}
+        className="py-16 max-w-5xl mx-auto text-left"
+        style={{ paddingLeft: "24px", paddingRight: "24px" }}
       >
         <motion.div
           variants={fadeUpVariant}
@@ -215,14 +269,11 @@ const ISO19011Benefits = () => {
 
         <Box
           sx={{
-            display: "grid",
-            justifyContent: "center",
-            gap: 2,
+            display: "flex",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: { xs: "20px", sm: "30px", md: "40px" },
             mt: 5,
-            gridTemplateColumns: {
-              xs: "1fr",      // 1 column on extra small screens
-              sm: "1fr 1fr",  // 2 columns on small screens and up
-            },
           }}
         >
           {renderCard(

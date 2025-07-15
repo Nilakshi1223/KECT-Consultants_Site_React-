@@ -1,6 +1,5 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Box from "@mui/material/Box";
 import { motion } from "framer-motion";
@@ -40,70 +39,108 @@ const FSSC22000Benefits = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: "spring", stiffness: 200, damping: 15 }}
         style={{ width: "100%" }}
       >
-        <Card
+        <Box
           sx={{
+            position: "relative",
             width: "100%",
             minHeight: 250,
-            position: "relative",
-            paddingTop: 4,
-            boxSizing: "border-box"
+            overflow: "hidden",
+            borderRadius: "20px",
+            cursor: "pointer",
+            backgroundColor: "#fff",
+            boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+            transition: "background-color 0.5s ease",
+            "&:hover": {
+              backgroundColor: "#1976d2",
+              color: "#fff"
+            },
+            "&:before": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              right: 0,
+              width: 60,
+              height: 60,
+              backgroundColor: "#1976d2",
+              borderBottomLeftRadius: "100%",
+              transition: "all 0.5s ease-in-out",
+              zIndex: 1
+            },
+            "&:hover:before": {
+              width: "100%",
+              height: "100%",
+              borderBottomLeftRadius: 0,
+              borderRadius: "20px"
+            },
+            "& > *": {
+              position: "relative",
+              zIndex: 2,
+              transition: "color 0.5s ease"
+            },
+            "&:hover .card-title, &:hover .card-description, &:hover .card-number": {
+              color: "#fff"
+            },
+            "& .icon-container": {
+              position: "absolute",
+              top: 8,
+              left: 20,
+              width: 48,
+              height: 48,
+              backgroundColor: "rgba(255,255,255,0.6)",
+              borderRadius: "12px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#1976d2",
+              fontSize: "1.8rem",
+              transition: "all 0.5s ease",
+              zIndex: 3
+            },
+            "&:hover .icon-container": {
+              backgroundColor: "transparent",
+              color: "gold"
+            },
+            "& .card-number": {
+              position: "absolute",
+              top: 8,
+              right: 30,
+              backgroundColor: "rgba(255,255,255,0.6)",
+              color: "#1976d2",
+              padding: "2px 8px",
+              borderRadius: "12px",
+              fontWeight: "bold",
+              fontSize: "0.87rem",
+              minWidth: "28px",
+              textAlign: "center",
+              zIndex: 3,
+              transition: "all 0.5s ease"
+            },
+            "&:hover .card-number": {
+              backgroundColor: "transparent",
+              color: "gold"
+            }
           }}
         >
           <CardContent sx={{ position: "relative" }}>
-            <Box
-              sx={{
-                position: "absolute",
-                top: { xs: 4, sm: 2 },
-                left: { xs: 16, sm: 20 },
-                width: { xs: 40, sm: 48 },
-                height: { xs: 40, sm: 48 },
-                bgcolor: "rgb(185, 228, 248)",
-                borderRadius: "12px",
-                display: "grid",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "rgb(25, 118, 210)",
-                fontSize: { xs: "1.4rem", sm: "1.8rem" },
-                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)"
-              }}
-            >
+            <Box className="icon-container">
               <IconComponent />
             </Box>
 
-            <Typography
-              variant="h6"
-              sx={{
-                position: "absolute",
-                top: 5,
-                right: 30,
-                bgcolor: "rgb(185, 228, 248)",
-                color: "rgb(139, 142, 143)",
-                px: 1,
-                py: 0.5,
-                borderRadius: "12px",
-                fontWeight: "bold",
-                fontSize: "0.87rem",
-                display: "inline-block",
-                minWidth: "28px",
-                textAlign: "center"
-              }}
-            >
-              {number}
-            </Typography>
-
-            <br />
+            <Typography className="card-number">{number}</Typography>
 
             <Typography
               gutterBottom
               variant="h6"
-              component="div"
+              className="card-title"
               sx={{
                 fontWeight: "bold",
-                mt: 5,
+                mt: 6,
                 mb: 0.5,
-                color: "rgb(34, 65, 65)",
+                color: "inherit",
                 fontSize: { xs: "1rem", sm: "1.2rem", md: "1.3rem" }
               }}
             >
@@ -111,15 +148,16 @@ const FSSC22000Benefits = () => {
             </Typography>
             <Typography
               variant="body2"
+              className="card-description"
               sx={{
-                color: "text.secondary",
+                color: "inherit",
                 fontSize: { xs: "0.85rem", sm: "0.9rem", md: "1rem" }
               }}
             >
               {description}
             </Typography>
           </CardContent>
-        </Card>
+        </Box>
       </motion.div>
     </Box>
   );
@@ -209,7 +247,8 @@ const FSSC22000Benefits = () => {
               margin: "0 auto"
             }}
           >
-            Strengthen food safety and consumer confidence with FSSC 22000 — the trusted standard for managing risks and ensuring safe food worldwide.
+            Strengthen food safety and consumer confidence with FSSC 22000 — the
+            trusted standard for managing risks and ensuring safe food worldwide.
           </p>
           <br />
         </motion.div>
