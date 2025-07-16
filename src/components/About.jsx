@@ -130,7 +130,6 @@ const AboutPage = () => {
 
   return (
     <div>
-      {/* Glowing Image Animation Style */}
       <style>
         {`
           @keyframes blink-glow {
@@ -203,11 +202,13 @@ const AboutPage = () => {
           </div>
 
           {/* Vision, Mission, Values Section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-y-14 md:gap-y-16 gap-x-10">
             {infoSections.map((item, idx) => (
               <div
                 key={idx}
-                className="relative bg-white pt-40 px-6 sm:px-10 pb-10 rounded-xl border border-[#003B78] shadow-md text-left"
+                className="relative bg-white pt-36 sm:pt-32 md:pt-40 lg:pt-44 px-4 sm:px-6 md:px-10 pb-6 sm:pb-6 md:pb-8 
+             rounded-xl border border-[#003B78] shadow-md text-left min-h-[300px] sm:min-h-[320px] md:min-h-[400px] 
+             mb-16 sm:mb-20 md:mb-0"
                 data-aos="fade-up"
               >
                 {item.image && (
@@ -219,7 +220,6 @@ const AboutPage = () => {
                     />
                   </div>
                 )}
-
                 <h3 className="text-xl font-bold uppercase mb-3 text-center">{item.title}</h3>
                 {item.list ? (
                   <ul className="list-disc list-inside space-y-2">

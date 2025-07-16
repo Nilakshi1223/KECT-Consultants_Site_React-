@@ -97,7 +97,7 @@ const Footer = () => {
                       <a href="https://lk.linkedin.com/company/kectgroup" target="_blank" rel="noopener noreferrer">
                         <FaLinkedin className="cursor-pointer hover:text-gray-200" />
                       </a>
-                      <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
+                      <a href="https://wa.me/+94769780984" target="_blank" rel="noopener noreferrer">
                         <FaWhatsapp className="cursor-pointer hover:text-gray-200" />
                       </a>
                     </div>
