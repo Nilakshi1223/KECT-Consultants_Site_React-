@@ -1,6 +1,15 @@
 import React from 'react';
 import logo from '../assets/CompanyLogo.jpg';
 import { Link } from "react-router-dom";
+import {
+  FaPhoneAlt,
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedin,
+  FaWhatsapp,
+  FaTimes,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -74,6 +83,24 @@ const Footer = () => {
             +94 76 978 0984 / +94 70 533 9370<br />
             kectgroup@gmail.com
           </p>
+          {/* Social Icons */}
+                    <div className="flex items-center mt-11 gap-1 sm:gap-3 md:gap-4 text-base sm:text-lg md:text-xl">
+                      <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                        <FaFacebookF className="cursor-pointer hover:text-gray-200" />
+                      </a>
+                      <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                        <FaInstagram className="cursor-pointer hover:text-gray-200" />
+                      </a>
+                      <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                        <FaTwitter className="cursor-pointer hover:text-gray-200" />
+                      </a>
+                      <a href="https://lk.linkedin.com/company/kectgroup" target="_blank" rel="noopener noreferrer">
+                        <FaLinkedin className="cursor-pointer hover:text-gray-200" />
+                      </a>
+                      <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
+                        <FaWhatsapp className="cursor-pointer hover:text-gray-200" />
+                      </a>
+                    </div>
         </div>
       </div>
 
