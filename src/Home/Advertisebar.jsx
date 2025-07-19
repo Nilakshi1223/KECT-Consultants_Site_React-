@@ -27,7 +27,7 @@ const Advertisebar = () => {
 
           {/* Social Icons */}
           <div className="flex items-center gap-1 sm:gap-3 md:gap-4 text-base sm:text-lg md:text-xl">
-            <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/share/19NT317H9M/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
               <FaFacebookF className="cursor-pointer hover:text-gray-200" />
             </a>
             <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
@@ -36,7 +36,7 @@ const Advertisebar = () => {
             <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
               <FaTwitter className="cursor-pointer hover:text-gray-200" />
             </a>
-            <a href="https://lk.linkedin.com/company/kectgroup" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/company/kect-consultants-pvt-ltd/" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="cursor-pointer hover:text-gray-200" />
             </a>
             <a href="https://wa.me/+94769780984" target="_blank" rel="noopener noreferrer">
