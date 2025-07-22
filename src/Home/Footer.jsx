@@ -88,12 +88,6 @@ const Footer = () => {
                       <a href="https://www.facebook.com/share/19NT317H9M/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
                         <FaFacebookF className="cursor-pointer hover:text-gray-200" />
                       </a>
-                      <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
-                        <FaInstagram className="cursor-pointer hover:text-gray-200" />
-                      </a>
-                      <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
-                        <FaTwitter className="cursor-pointer hover:text-gray-200" />
-                      </a>
                       <a href="https://www.linkedin.com/company/kect-consultants-pvt-ltd/" target="_blank" rel="noopener noreferrer">
                         <FaLinkedin className="cursor-pointer hover:text-gray-200" />
                       </a>
