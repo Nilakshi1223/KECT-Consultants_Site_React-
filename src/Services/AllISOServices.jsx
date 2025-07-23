@@ -1,20 +1,20 @@
-import React, { useState } from "react";
 import {
+  Box,
+  Button,
   Card,
-  CardContent,
   CardActions,
+  CardContent,
   CardMedia,
   Typography,
-  Button,
-  Box,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { BiFirstPage } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
-import processGif from "../assets/telephone.gif";
 import DealGif from "../assets/deal.gif";
 import fingurGif from "../assets/finger.gif"; // Adjust path if needed
+import processGif from "../assets/telephone.gif";
 import servicesData from "./ServicesData.jsx";
 
 export default function Services() {
@@ -314,17 +314,24 @@ export default function Services() {
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
+            {/**for the 2 cards per row */}
             <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                flexWrap: "wrap",
-                gap: { xs: "10px 15px", sm: "20px 25px", md: "25px 30px" },
-                mt: 5,
-                px: { xs: 1, sm: 3, md: 5 },
-                maxWidth: "100%",
-              }}
-            >
+  sx={{
+    display: "grid",
+    gridTemplateColumns: {
+      xs: "1fr", // 1 card per row on extra-small screens
+      sm: "1fr", // 1 card per row on small screens
+      md: "1fr 1fr", // 2 cards per row on medium and above
+    },
+    gap: { xs: "30px", sm: "40px", md: "50px" },
+    mt: 8,
+    px: { xs: 1, sm: 2, md: 0 }, // Remove horizontal padding on md+
+    maxWidth: "1200px", // Fixed max width for grid
+    mx: "auto", // Center grid container
+    justifyContent: "center", // Center cards as a group
+  }}
+>
+
               {filteredRow.map(([img, title, desc, path]) =>
                 renderCard(img, title, desc, path)
               )}
@@ -332,111 +339,38 @@ export default function Services() {
           </motion.div>
         ))}
 
-      {/* Call to Action Section */}
-      <Box
-        sx={{
-          mt: 8,
-          mb: 8,
-          p: 3,
-          borderRadius: 3,
-          boxShadow: 2,
-          backgroundColor: "#f9fafb",
-          maxWidth: 900,
-          mx: "auto",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: 3,
-            justifyContent: { xs: "center", sm: "flex-start" },
-            textAlign: { xs: "center", sm: "left" },
-          }}
-        >
-          {/* Process Icon */}
-          <Box
-            component="img"
-            src={processGif}
-            alt="process icon"
-            sx={{ width: { xs: 60, sm: 80, md: 96 }, height: { xs: 60, sm: 80, md: 96 } }}
-          />
+        {/**call to action */}
 
-          {/* Text + Deal Icon + Call Button */}
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: 3,
-              justifyContent: { xs: "center", sm: "flex-start" },
-              textAlign: { xs: "center", sm: "left" },
-              flexGrow: 1,
-            }}
-          >
-            <Typography
-              variant="h5"
-              component="p"
-              sx={{
-                fontWeight: "bold",
-                color: "gray.800",
-                lineHeight: 1.2,
-                fontSize: { xs: "1.2rem", sm: "1.5rem", md: "1.8rem" },
-              }}
-            >
-              Simplifying ISO: We Consult,{" "}
-              <Box component="span" sx={{ color: "primary.main", fontWeight: "bold" }}>
-                You Get Certified!
-              </Box>
-            </Typography>
 
-            <Box
-              component="img"
-              src={DealGif}
-              alt="deal icon"
-              sx={{ width: { xs: 60, sm: 80, md: 96 }, height: { xs: 60, sm: 80, md: 96 } }}
-            />
 
-            <Button
-              component="a"
+<div className="w-full max-w-9xl mx-auto p-6 rounded-lg">
+        <div className="flex items-center gap-4 flex-wrap sm:flex-nowrap justify-center sm:justify-start text-center sm:text-left">
+          <img src={processGif} alt="process icon" className="w-20 sm:w-24 h-20 sm:h-24" />
+
+          <div className="flex items-center gap-4 flex-wrap sm:flex-nowrap justify-center sm:justify-start text-center sm:text-left">
+            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 leading-tight">
+             Simplifying ISO: We Consult,
+              <span className="text-blue-700 font-bold"> You Get Certified!</span>
+            </p>
+            <img src={DealGif} alt="deal icon" className="w-20 sm:w-24 h-20 sm:h-24" />
+            <a
               href="tel:+94769780984"
-              variant="contained"
-              sx={{
-                bgcolor: "success.main",
-                color: "#fff",
-                px: { xs: 4, sm: 6 },
-                py: { xs: 1.5, sm: 2 },
-                fontSize: { xs: "1rem", sm: "1.5rem" },
-                borderRadius: 2,
-                boxShadow: 3,
-                textTransform: "none",
-                "&:hover": {
-                  bgcolor: "success.dark",
-                },
-              }}
+              className="inline-flex items-center gap-2 px-6 sm:px-9 py-3 sm:py-4 bg-green-500 text-white rounded-lg shadow hover:bg-green-400 transition text-lg sm:text-2xl whitespace-nowrap"
             >
               📞 Call Now +94769780984
-            </Button>
-          </Box>
-        </Box>
+            </a>
+          </div>
+        </div>
 
-        <Typography
-          sx={{
-            mt: 3,
-            color: "gray.600",
-            fontWeight: 600,
-            fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-            textAlign: "center",
-            maxWidth: 700,
-            mx: "auto",
-          }}
-        >
-          We make ISO certification easy by guiding you through every step — from
-          consultation to successful certification — with zero stress and full
-          support.
-        </Typography>
-      </Box>
+        <div className="max-w-xl ml-4 sm:ml-[5.5rem] mt-4 text-left">
+          <p className="text-gray-600 text-lg sm:text-xl leading-relaxed font-semibold">
+            We make ISO certification easy by guiding you through every step — 
+            from consultation to successful certification 
+            — with zero stress and full support.
+          </p>
+        </div>
+      </div>
+
 
       {/* Scroll to Top Button */}
       <BiFirstPage

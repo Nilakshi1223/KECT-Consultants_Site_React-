@@ -290,34 +290,9 @@ const HACPBenefits = () => {
         </Box>
       </div>
 
-      {/* Call to Action Section */}
-      <div className="w-full max-w-9xl mx-auto p-6 rounded-lg">
-        <div className="flex items-center gap-4 flex-wrap sm:flex-nowrap justify-center sm:justify-start text-center sm:text-left">
-          <img src={processGif} alt="process icon" className="w-20 sm:w-24 h-20 sm:h-24" />
-
-          <div className="flex items-center gap-4 flex-wrap sm:flex-nowrap justify-center sm:justify-start text-center sm:text-left">
-            <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 leading-tight">
-              Simplifying HACCP: We Guide,
-              <span className="text-blue-700 font-bold"> You Get Certified!</span>
-            </p>
-            <img src={DealGif} alt="deal icon" className="w-20 sm:w-24 h-20 sm:h-24" />
-            <a
-              href="tel:+94769780984"
-              className="inline-flex items-center gap-2 px-6 sm:px-9 py-3 sm:py-4 bg-green-500 text-white rounded-lg shadow hover:bg-green-400 transition text-lg sm:text-2xl whitespace-nowrap"
-            >
-              📞 Call Now +94769780984
-            </a>
-          </div>
-        </div>
-
-        <div className="max-w-xl ml-4 sm:ml-[5.5rem] mt-4 text-left">
-          <p className="text-gray-600 text-lg sm:text-xl leading-relaxed font-semibold">
-            Getting HACCP certified is easy with us! From consultation to successful certification,
-            we ensure food safety compliance, clarity, and confidence every step of the way.
-          </p>
-        </div>
+        
       </div>
-    </div>
+    
   );
 };
 

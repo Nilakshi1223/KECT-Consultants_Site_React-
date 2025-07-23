@@ -17,7 +17,6 @@ export default function ISO45001Main() {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
-  // Responsive sizes similar to ISO37001Main
   const arrowBottom = isMobile ? "15px" : "20px";
   const centerWidth = isMobile ? "90vw" : "700px";
   const headingFontSize = isMobile ? "1.6rem" : "2.5rem";
@@ -91,23 +90,30 @@ export default function ISO45001Main() {
             top: isMobile ? "20px" : "30px",
             left: '50%',
             transform: 'translateX(-50%)',
-            fontSize: { xs: "1rem", sm: "1.15rem", md: "1.25rem" },
-            color: "rgb(9, 42, 71)",
+            fontSize: {
+        xs: "1.5rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+            color: "#FFFFFF",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
             textAlign: "center",
-            backgroundColor: "rgb(207, 223, 238)",
+            fontWeight: "bold",
             padding: isMobile ? "4px 10px" : "6px 12px",
             borderRadius: "20px",
             zIndex: 10,
           }}
         >
-          ISO 45001 : 2018
+           <span style={{ whiteSpace: "nowrap" }}>ISO 45001 : 2018</span>
         </Typography>
 
         {/* Center content */}
         <div
           style={{
             position: 'absolute',
-            top: isMobile ? "40%" : isTablet ? "38%" : "35%",
+            top: isMobile ? "50%" : isTablet ? "48%" : "46%", // ✅ Increased top value to add gap
             left: '50%',
             transform: 'translate(-50%, -50%)',
             textAlign: 'center',
@@ -124,11 +130,21 @@ export default function ISO45001Main() {
               color: "#FFFFFF",
               textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
               marginTop: centerTopMargin,
-              fontSize: headingFontSize,
+              fontSize: {
+                xs: "1.5rem",
+                sm: "2.2rem",
+                md: "2.8rem",
+                lg: "3.4rem",
+                xl: "4rem",
+              },
               lineHeight: 1.2,
+              wordBreak: "break-word",
+              overflowWrap: "break-word",
+              textAlign: "center",
             }}
           >
-            Occupational Health and Safety Management Systems (OHSMS)
+            Occupational Health and Safety
+            Management Systems (OHSMS)
           </Typography>
 
           <Typography
@@ -136,8 +152,13 @@ export default function ISO45001Main() {
             component="h2"
             sx={{
               textAlign: "center",
-              color: "rgba(247, 247, 247, 0.9)",
-              fontSize: subHeadingFontSize,
+              color: "#FFFFFF",
+              fontSize: {
+                xs: "1rem",
+                sm: "1.15rem",
+                md: "1.3rem",
+                lg: "1.5rem",
+              },
               marginTop: subHeadingTopMargin,
               marginBottom: subHeadingBottomMargin,
             }}

@@ -82,71 +82,94 @@ export default function ISO9001Main() {
         />
 
         {/* Top label */}
-        <Typography
-          variant="subtitle2"
-          component="h1"
-          gutterBottom
-          sx={{
-            position: "absolute",
-            top: isMobile ? "20px" : "30px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            fontSize:{ xs: "1rem", sm: "1.15rem", md: "1.25rem" },
-            color: "rgb(9, 42, 71)",
-            textAlign: "center",
-            backgroundColor: "rgb(207, 223, 238)",
-            padding: isMobile ? "4px 10px" : "6px 12px",
-            borderRadius: "20px",
-            zIndex: 10,
-          }}
-        >
-          ISO 9001 : 2015
-        </Typography>
+       <Typography
+  variant="subtitle2"
+  component="h1"
+  gutterBottom
+  sx={{
+    position: "absolute",
+    top: isMobile ? "20px" : "30px",
+    left: "50%",
+    transform: "translateX(-50%)",
+    fontSize: {
+      xs: "1.5rem",   // Slightly reduced for mobile
+      sm: "2.2rem",
+      md: "2.8rem",
+      lg: "3.4rem",
+      xl: "4rem",
+    },
+    color: "#FFFFFF",
+    textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
+    textAlign: "center",
+    fontWeight: "bold",
+    padding: isMobile ? "4px 10px" : "6px 12px",
+    borderRadius: "20px",
+    zIndex: 10,
+    whiteSpace: "nowrap", // Ensures single-line rendering
+  }}
+>
+  <span style={{ whiteSpace: "nowrap" }}>ISO 9001 : 2015</span>
+</Typography>
+
 
         {/* Center content */}
-        <div
-          style={{
-            position: "absolute",
-            top: isMobile ? "40%" : isTablet ? "38%" : "35%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            textAlign: "center",
-            zIndex: 10,
-            width: centerWidth,
-            padding: isMobile ? "0 10px" : "initial",
-          }}
-        >
-          <Typography
-            variant="h3"
-            component="h2"
-            sx={{
-              fontWeight: "bold",
-              color: "#FFFFFF",
-              textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
-              marginTop: centerTopMargin,
-              fontSize: headingFontSize,
-              lineHeight: 1.2,
-            }}
-          >
-            Quality Management Systems
-          </Typography>
+       <div
+  style={{
+    position: "absolute",
+    top: isMobile ? "40%" : isTablet ? "38%" : "35%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    textAlign: "center",
+    zIndex: 10,
+    width: centerWidth,
+    padding: isMobile ? "0 10px" : "initial",
+  }}
+>
+  {/* Heading */}
+  <Typography
+    variant="h3"
+    component="h2"
+    sx={{
+      fontWeight: "bold",
+      color: "#FFFFFF",
+      textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
+      marginTop: centerTopMargin,
+      fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+      lineHeight: 1.2,
+    }}
+  >
+    Quality Management Systems
+  </Typography>
 
-          <Typography
-            variant="h6"
-            component="h2"
-            sx={{
-              textAlign: "center",
-              color: "rgba(247, 247, 247, 0.9)",
-              fontSize: subHeadingFontSize,
-              marginTop: subHeadingTopMargin,
-              marginBottom: subHeadingBottomMargin,
-            }}
-          >
-            Transform your business with ISO 9001:2015 certification.
-            Achieve global recognition, improve efficiency, and build
-            customer trust with internationally accepted quality standards.
-          </Typography>
-        </div>
+  {/* Subheading */}
+  <Typography
+    variant="h6"
+    component="h2"
+    sx={{
+      textAlign: "center",
+      color: "#FFFFFF",
+      fontSize: {
+        xs: "1rem",    // Mobile
+        sm: "1.15rem", // Tablets
+        md: "1.3rem",  // Desktop
+        lg: "1.5rem",  // Large Desktop
+      },
+      marginTop: subHeadingTopMargin,
+      marginBottom: subHeadingBottomMargin,
+    }}
+  >
+    Transform your business with ISO 9001:2015 certification.
+    Achieve global recognition, improve efficiency, and build
+    customer trust with internationally accepted quality standards.
+  </Typography>
+</div>
+
 
         {/* Arrow icon */}
         <IoIosArrowDropdown

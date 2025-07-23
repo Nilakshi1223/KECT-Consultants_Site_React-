@@ -186,10 +186,17 @@ const navigate = useNavigate();
       top: '2vh',
       left: '50%',
       transform: 'translateX(-50%)',
-      fontSize: { xs: "1rem", sm: "1.15rem", md: "1.25rem"  },
-      color: 'rgb(9, 42, 71)',
+       fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+      color: '#FFFFFF',
+        textShadow: '2px 2px 4px rgba(0,0,0,0.7)',
       textAlign: 'center',
-      backgroundColor: 'rgb(207, 223, 238)',
+      fontWeight: "bold",
       px: 2,
       py: 1,
       borderRadius: '20px',
@@ -197,7 +204,7 @@ const navigate = useNavigate();
     }}
   >
     HACCP
-  </Typography>
+  </Typography> 
 
   {/* Center Content */}
   <Box
@@ -218,7 +225,14 @@ const navigate = useNavigate();
         fontWeight: 'bold',
         color: '#FFFFFF',
         textShadow: '2px 2px 4px rgba(0,0,0,0.7)',
-        fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2rem', lg: '2.5rem' },
+        fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+
         lineHeight: 1.2,
       }}
     >
@@ -229,8 +243,13 @@ const navigate = useNavigate();
       variant="body1"
       sx={{
         mt: 4,
-        color: 'rgba(247, 247, 247, 0.9)',
-        fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' },
+         color: '#FFFFFF',
+        fontSize: {
+        xs: "1rem",    // Mobile
+        sm: "1.15rem", // Tablets
+        md: "1.3rem",  // Desktop
+        lg: "1.5rem",  // Large Desktop
+      },
         lineHeight: 1.6,
       }}
     >

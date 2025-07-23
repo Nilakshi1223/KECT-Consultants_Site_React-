@@ -1,5 +1,5 @@
 {
-  "name": "kect-consultant-portfolio",
+  "name": "KectConsultant",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,6 +22,7 @@
     "lucide-react": "^0.524.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.2"
   },

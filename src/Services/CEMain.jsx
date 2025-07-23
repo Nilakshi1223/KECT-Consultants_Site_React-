@@ -165,7 +165,7 @@ export default function CEMain() {
         sx={{
           position: "relative",
           height: { xs: "80vh", sm: "90vh" },
-          width: "100vw",
+          width: "98.9vw",
           overflow: "hidden",
           color: "#fff",
           display: "flex",
@@ -221,10 +221,17 @@ export default function CEMain() {
             top: isMobile ? 2 : 3,
             left: "50%",
             transform: "translateX(-50%)",
-            fontSize: isMobile ? "0.75rem" : "0.9rem",
-            color: "rgb(9, 42, 71)",
+            fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+             fontWeight: "bold",
             textAlign: "center",
-            backgroundColor: "rgb(207, 223, 238)",
+           color: "#FFFFFF",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
             padding: isMobile ? "4px 10px" : "6px 12px",
             borderRadius: "20px",
             zIndex: 10,
@@ -255,7 +262,13 @@ export default function CEMain() {
               color: "#FFFFFF",
               textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
               mt: centerTopMargin,
-              fontSize: headingFontSize,
+                fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
               lineHeight: 1.2,
             }}
           >
@@ -267,8 +280,13 @@ export default function CEMain() {
             component="h2"
             sx={{
               textAlign: "center",
-              color: "rgba(247, 247, 247, 0.9)",
-              fontSize: subHeadingFontSize,
+               color: "#FFFFFF",
+               fontSize: {
+        xs: "1rem",    // Mobile
+        sm: "1.15rem", // Tablets
+        md: "1.3rem",  // Desktop
+        lg: "1.5rem",  // Large Desktop
+      },
               mt: subHeadingTopMargin,
               mb: subHeadingBottomMargin,
             }}

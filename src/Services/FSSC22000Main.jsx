@@ -35,7 +35,7 @@ export default function FSSC22000Main() {
         style={{
           position: 'relative',
           height: '100vh',
-          width: '100vw',
+          width: '98.9vw',
           overflow: "hidden",
           color: '#fff',
         }}
@@ -86,9 +86,16 @@ export default function FSSC22000Main() {
             top: isMobile ? "20px" : "30px",
             left: '50%',
             transform: 'translateX(-50%)',
-            fontSize:{ xs: "1rem", sm: "1.15rem", md: "1.25rem" },
-            color: "rgb(9, 42, 71)",
-            backgroundColor: "rgb(207, 223, 238)",
+            fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+            color: "#FFFFFF",
+             fontWeight: "bold",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
             padding: isMobile ? "4px 10px" : "6px 12px",
             borderRadius: "20px",
             zIndex: 10,
@@ -117,7 +124,13 @@ export default function FSSC22000Main() {
               color: "#FFFFFF",
               textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
               marginTop: centerTopMargin,
-              fontSize: headingFontSize,
+             fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
               lineHeight: 1.2,
             }}
           >
@@ -127,10 +140,15 @@ export default function FSSC22000Main() {
           <Typography
             variant="h6"
             sx={{
-              color: "rgba(247, 247, 247, 0.9)",
+             color: "#FFFFFF",
               marginTop: subHeadingTopMargin,
               marginBottom: subHeadingBottomMargin,
-              fontSize: subHeadingFontSize,
+              fontSize: {
+        xs: "1rem",    // Mobile
+        sm: "1.15rem", // Tablets
+        md: "1.3rem",  // Desktop
+        lg: "1.5rem",  // Large Desktop
+      },
               maxWidth: "700px",
               marginLeft: "auto",
               marginRight: "auto",

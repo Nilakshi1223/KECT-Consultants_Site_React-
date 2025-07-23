@@ -10,10 +10,7 @@ import Credential from './components/Credential.jsx';
 import TermsPolicy from "./Home/Terms&Policy";
 import ScrollToTop from './components/ScrollToTop.jsx';
 import { FaWhatsapp } from "react-icons/fa";
-//import WhoWeare from './components/WhoWeare.jsx';
 import Hightlight from './components/Highlight.jsx';
-
-
 
 import Services from './Services/Services.jsx';
 import AllISO from './Services/AllISOServices.jsx';
@@ -37,22 +34,23 @@ import HACPMain from './Services/HACPMain.jsx';
 import GMPMain from './Services/GMPMain.jsx';
 
 
+import AdditionalManagementServices from './Services/AdditionalManagementServices.jsx';
+
 export default function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop />
-     <Advertisebar/>
-    {/*  */}
-     <NavBar />
-     
+      <ScrollToTop />
+      <Advertisebar />
+      <NavBar />
+
       <Routes>
-        <Route path="/" element={<HomePage />} />     
+        <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Leader />} />
         <Route path="/contact" element={<HowToReach />} />
         <Route path="/credential" element={<Credential />} />
-        <Route path="/termspolicy" element={<TermsPolicy />} /> {/**/}
+        <Route path="/termspolicy" element={<TermsPolicy />} />
 
         <Route path="/all-iso" element={<AllISO />} />
         <Route path="/iso9001Main" element={<ISO9001Main />} />
@@ -73,23 +71,25 @@ export default function App() {
         <Route path="/ceMain" element={<CEMain />} />
         <Route path="/hacpMain" element={<HACPMain />} />
         <Route path="/gmpMain" element={<GMPMain />} />
-  
+
+        
+        <Route path="/additional-services" element={<AdditionalManagementServices />} />
       </Routes>
-        <div className="fixed bottom-5 right-5 z-50">
+
+      <div className="fixed bottom-5 right-5 z-50">
         <a
-         href="https://wa.me/+94769780984"
+          href="https://wa.me/+94769780984"
           target="_blank"
-        rel="noopener noreferrer"
-       className="flex items-center gap-2 bg-green-500 text-white py-3 px-4 md:px-5 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
-        title="Chat with us on WhatsApp"
-  >
-    <FaWhatsapp size={24} />
-    <span className="font-medium text-sm md:text-base hidden md:inline">Chat with us</span>
-  </a>
-</div>
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 bg-green-500 text-white py-3 px-4 md:px-5 rounded-full shadow-lg hover:bg-green-600 transition duration-300"
+          title="Chat with us on WhatsApp"
+        >
+          <FaWhatsapp size={24} />
+          <span className="font-medium text-sm md:text-base hidden md:inline">Chat with us</span>
+        </a>
+      </div>
 
-
-   <Footer />
+      <Footer />
     </BrowserRouter>
   );
 }

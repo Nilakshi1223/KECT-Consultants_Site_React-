@@ -268,72 +268,7 @@ const CEBenefits = () => {
           <br />
         </motion.div>
 
-        {/* Cards container */}
-        <Box
-          sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            mt: 5,
-            gap: "30px",
-          }}
-        >
-          {cardsData.map(({ title, description, icon, number }) => (
-            <Box
-              key={number}
-              sx={{
-                flex: "1 1 100%",
-                maxWidth: {
-                  xs: "100%",
-                  sm: "100%",
-                  md: "48%",
-                },
-              }}
-            >
-              {renderCard(title, description, icon, number)}
-            </Box>
-          ))}
-        </Box>
-      </div>
-
-      {/* Call To Action Section */}
-      <div className="w-full max-w-9xl mx-auto p-6 rounded-lg">
-        <div className="flex flex-wrap items-center gap-3 sm:gap-4 justify-center sm:justify-start text-center sm:text-left">
-          <img
-            src={processGif}
-            alt="process icon"
-            className="w-16 sm:w-20 h-16 sm:h-20"
-          />
-
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-3 sm:gap-4 justify-center sm:justify-start text-center sm:text-left">
-            <p className="text-lg sm:text-2xl font-bold text-gray-800 leading-tight">
-              Simplifying CE Marking: We Guide,
-              <span className="text-blue-700 font-bold"> You Get Certified!</span>
-            </p>
-
-            <img
-              src={DealGif}
-              alt="deal icon"
-              className="w-16 sm:w-20 h-16 sm:h-20"
-            />
-
-            <a
-              href="tel:+94769780984"
-              className="inline-flex items-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-green-500 text-white rounded-lg shadow hover:bg-green-400 transition text-base sm:text-xl whitespace-nowrap ml-2 sm:ml-6"
-            >
-              📞 Call Now +94769780984
-            </a>
-          </div>
-        </div>
-
-        <div className="max-w-xl ml-4 sm:ml-[5.5rem] mt-4 text-left">
-          <p className="text-gray-600 text-sm sm:text-lg leading-relaxed font-semibold">
-            Getting CE Marking is simple with our expert guidance! We help you meet
-            EU regulatory standards for safety, health, and environmental protection
-            — ensuring smooth compliance and faster market access.
-          </p>
-        </div>
-      </div>
+    </div>
     </div>
   );
 };

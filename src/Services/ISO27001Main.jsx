@@ -81,40 +81,50 @@ export default function ISO27001Main() {
         ></div>
 
         {/* Top label */}
-        <Typography
-          variant="subtitle2"
-          component="h1"
-          gutterBottom
-          sx={{
-            position: 'absolute',
-            top: isMobile ? "20px" : "30px",
-            left: '50%',
-            transform: 'translateX(-50%)',
-            fontSize:{ xs: "1rem", sm: "1.15rem", md: "1.25rem" },
-            color: "rgb(9, 42, 71)",
-            textAlign: "center",
-            backgroundColor: "rgb(207, 223, 238)",
-            padding: isMobile ? "4px 10px" : "6px 12px",
-            borderRadius: "20px",
-            zIndex: 10,
-          }}
-        >
-          ISO 27001 : 2022
-        </Typography>
+ <Typography
+  variant="subtitle2"
+  component="h1"
+  gutterBottom
+  sx={{
+    position: 'absolute',
+    top: isMobile ? "20px" : "30px",
+    left: '50%',
+    transform: 'translateX(-50%)',
+    fontSize: {
+      xs: "1.5rem",   // Mobile
+      sm: "2.2rem",   // Small tablets
+      md: "2.8rem",   // Tablets
+      lg: "3.4rem",   // Desktops
+      xl: "4rem",     // Large screens
+    },
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "#FFFFFF",
+    textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
+    padding: isMobile ? "4px 10px" : "6px 12px",
+    borderRadius: "20px",
+    marginBottom: isMobile ? "50px" : "80px", 
+    
+    zIndex: 10,
+  }}
+>
+   <span style={{ whiteSpace: "nowrap" }}>ISO 27001 : 2022</span>
+</Typography>
+
 
         {/* Center content */}
-        <div
-          style={{
-            position: 'absolute',
-            top: isMobile ? "40%" : isTablet ? "38%" : "35%",
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            textAlign: 'center',
-            zIndex: 10,
-            width: centerWidth,
-            padding: isMobile ? "0 10px" : "initial",
-          }}
-        >
+      	        <div
+  style={{
+    position: "absolute",
+    top: isMobile ? "50%" : isTablet ? "46%" : "44%", // increased top % slightly
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    textAlign: "center",
+    zIndex: 10,
+    width: centerWidth,
+    padding: isMobile ? "0 10px" : "initial",
+  }}
+>
           <Typography
             variant="h3"
             component="h2"
@@ -123,11 +133,22 @@ export default function ISO27001Main() {
               color: "#FFFFFF",
               textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
               marginTop: centerTopMargin,
-              fontSize: headingFontSize,
+               fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
               lineHeight: 1.2,
             }}
           >
-            Information Security Management Systems (ISMS)
+            <span style={{ whiteSpace: "nowrap" }}>Information Security </span><br/>
+ 
+  <span style={{ whiteSpace: "nowrap" }}>Management Systems </span><br/>
+  <span style={{ whiteSpace: "nowrap" }}> (ISMS)</span>
+  
+             
           </Typography>
 
           <Typography
@@ -135,8 +156,13 @@ export default function ISO27001Main() {
             component="h2"
             sx={{
               textAlign: "center",
-            color: "rgba(247, 247, 247, 0.9)",
-              fontSize: subHeadingFontSize,
+            color: "#FFFFFF",
+               fontSize: {
+        xs: "1rem",    // Mobile
+        sm: "1.15rem", // Tablets
+        md: "1.3rem",  // Desktop
+        lg: "1.5rem",  // Large Desktop
+      },
               marginTop: subHeadingTopMargin,
               marginBottom: subHeadingBottomMargin,
             }}

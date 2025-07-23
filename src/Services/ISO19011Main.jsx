@@ -80,7 +80,7 @@ export default function ISO19011Main() {
           }}
         />
 
-        {/* Top label */}
+        {/* Top label*/} 
         <Typography
           variant="subtitle2"
           component="h1"
@@ -90,16 +90,23 @@ export default function ISO19011Main() {
             top: isMobile ? "20px" : "30px",
             left: "50%",
             transform: "translateX(-50%)",
-            fontSize: { xs: "1rem", sm: "1.15rem", md: "1.25rem" },
-            color: "rgb(9, 42, 71)",
+             fontSize: {
+        xs: "1.5rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+            color: "#FFFFFF",
+              textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
             textAlign: "center",
-            backgroundColor: "rgb(207, 223, 238)",
+            fontWeight: "bold",
             padding: isMobile ? "4px 10px" : "6px 12px",
             borderRadius: "20px",
             zIndex: 10,
           }}
         >
-          ISO 19011 : 2018
+          <span style={{ whiteSpace: "nowrap" }}>ISO 19011 : 2018</span>
         </Typography>
 
         {/* Center content */}
@@ -123,7 +130,13 @@ export default function ISO19011Main() {
               color: "#FFFFFF",
               textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
               marginTop: centerTopMargin,
-              fontSize: headingFontSize,
+              fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
               lineHeight: 1.2,
             }}
           >
@@ -135,10 +148,15 @@ export default function ISO19011Main() {
             component="h2"
             sx={{
               textAlign: "center",
-              color: "rgba(247, 247, 247, 0.9)",
+             color: "#FFFFFF",
               marginTop: subHeadingTopMargin,
               marginBottom: subHeadingBottomMargin,
-              fontSize: subHeadingFontSize,
+              fontSize: {
+        xs: "1rem",    // Mobile
+        sm: "1.15rem", // Tablets
+        md: "1.3rem",  // Desktop
+        lg: "1.5rem",  // Large Desktop
+      },
               lineHeight: 1.2,
             }}
           >

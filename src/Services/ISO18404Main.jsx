@@ -28,10 +28,17 @@ export default function ISO184049Main() {
     top: isMobile ? "15px" : "30px",
     left: "50%",
     transform: "translateX(-50%)",
-    fontSize: isMobile ? "0.7rem" : "0.9rem",
-    color: "rgb(9, 42, 71)",
+     fontSize: {
+        xs: "1.5rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
+    color: "#FFFFFF",
+    textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
     textAlign: "center",
-    backgroundColor: "rgb(207, 223, 238)",
+    fontWeight: "bold",
     display: "inline-block",
     padding: isMobile ? "4px 8px" : "6px 12px",
     borderRadius: "20px",
@@ -54,7 +61,13 @@ export default function ISO184049Main() {
     color: "#FFFFFF",
     textShadow: "2px 2px 4px rgba(0,0,0,0.7)",
     marginTop: isMobile ? "80px" : isTablet ? "120px" : "150px",
-    fontSize: isMobile ? "1.8rem" : isTablet ? "2.2rem" : "2.3rem",
+    fontSize: {
+        xs: "1.8rem",   // Mobile
+        sm: "2.2rem",   // Small tablets
+        md: "2.8rem",   // Tablets
+        lg: "3.4rem",   // Desktops
+        xl: "4rem",     // Large screens
+      },
     lineHeight: 1.2,
   };
 
@@ -65,10 +78,16 @@ export default function ISO184049Main() {
 
   const h6Style = {
     textAlign: "center",
-    color: "rgb(212, 212, 218)",
+    color: "#FFFFFF",
+    
     marginTop: isMobile ? "30px" : "40px",
     marginBottom: isMobile ? "30px" : "60px",
-    fontSize: isMobile ? "0.85rem" : "1.3rem",
+    fontSize: {
+        xs: "1rem",    // Mobile
+        sm: "1.15rem", // Tablets
+        md: "1.3rem",  // Desktop
+        lg: "1.5rem",  // Large Desktop
+      },
   };
 
   const arrowStyle = {
@@ -141,14 +160,10 @@ export default function ISO184049Main() {
           gutterBottom
           sx={{
               ...topLabelStyle,
-            fontSize: {
-            xs: "1rem",     // mobile
-            sm: "1.15rem",  // small screens (tablets)
-            md: "1.25rem",  // medium and up (laptops/desktops)
-          },
+       
         }}
       >
-        ISO 18404 : 2015
+       <span style={{ whiteSpace: "nowrap" }}>ISO 18404 : 2015</span> 
       </Typography>
 
         {/* Center content */}

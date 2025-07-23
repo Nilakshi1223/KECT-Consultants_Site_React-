@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
 
-import bgImage from "../assets/Homebg1.webp";
+import bgImage from "../assets/homeBackgrouns1.webp";
 
 import About from "../components/About";
 import Contact from "../components/HowToReach";
@@ -198,7 +198,7 @@ export default function HomePage() {
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-wide drop-shadow-lg opacity-0 animate-fade-in-delay1">
           KECT Consultants
         </h1>
-        <div className="text-xl sm:text-3xl font-semibold text-[#151556] drop-shadow-md opacity-0 animate-fade-in-delay2">
+        <div className="text-xl sm:text-3xl font-semibold text-[#b1b1e0] drop-shadow-md opacity-0 animate-fade-in-delay2">
           ISO & Management Consultancy Excellence
         </div>
         <h2 className="text-2xl sm:text-4xl font-semibold text-yellow-400 drop-shadow-md opacity-0 animate-fade-in-delay3">

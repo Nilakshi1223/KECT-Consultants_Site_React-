@@ -10,55 +10,68 @@ import clientsBg from "../assets/OurClient.webp"; // Replace with your actual ba
 import Deepani from "../assets/depani.webp";
 import Dream from "../assets/DreamFactory.webp";
 import AdamCarbons from "../assets/AdamCarbons.webp";
-import CenterFolean from "../assets/centerfolean_logo.webp";
+import Coco from "../assets/sasmina.webp";
 import Sanoda from "../assets/Sanoda.webp";
-import Kolega from "../assets/Kolega.webp";
+import SLT from "../assets/SLT.webp";
 import TropicalTea from "../assets/TropicalCeylonTea.webp";
 import Haycolor from "../assets/haycolour_logo.webp";
 import Pandora from "../assets/Panora.webp";
 import mmnoorbhoy from "../assets/MMN.webp";
-import Titan from "../assets/titan-logo-rgb.webp";
+import MAS from "../assets/MAS.webp";
 import Ondera from "../assets/Ovendra.webp";
-import NB from "../assets/NB.webp";
-import Ema from "../assets/EmaPharma.webp";
+import NB from "../assets/NB_.webp";
+import Ema from "../assets/ema.webp";
 import Rugby from "../assets/Rugby.webp";
-import Gmedi from "../assets/GlobalMedi.webp";
+import Gmedi from "../assets/GM.webp";
 import Nuwani from "../assets/Nuwani.webp";
-import Sasra from "../assets/Sasra.webp";
-import VisionL from "../assets/Vision Lanka.webp";
+import Sasra from "../assets/Sahasra.webp";
+import SBD from "../assets/Dino.webp";
 import LHC from "../assets/lhc-logo.png";
-import DTT from "../assets/DT.webp";
+import ST from "../assets/sethum.webp";
 import Udayanga from "../assets/Udayanga.webp";
-import LS from "../assets/LS.webp";
+import LS from "../assets/LSSS.webp";
 import NF from "../assets/Nouris.webp";
 import SA from "../assets/Siyarata.webp";
+import LCP from "../assets/Lis.jpg";
+import DIL from "../assets/dill.webp";
+import KLY from "../assets/kayak.webp";
+import Dis from "../assets/desir.webp";
+import DTY from "../assets/Daharmasiri.webp";
+
+
 
 const clientLogos = [
   { src: Deepani, alt: 'Deepani Enterprises', name: 'Deepani Enterprises' },
   { src: Dream, alt: 'Dream Factory', name: 'Dream Factory' },
   { src: AdamCarbons, alt: 'Adam Carbons', name: 'Adam Carbons' },
-  { src: CenterFolean, alt: 'Center For Lean Excellence', name: 'Center For Lean Excellence' },
+  { src: Coco, alt: 'BV Coco pvt ltd', name: 'BV Coco (Pvt) Ltd' },
   { src: Sanoda, alt: 'Sanoda Ayurveda', name: 'Sanoda Ayurveda' },
-  { src: Kolega, alt: 'Kolega Engineering', name: 'Kolega Engineering' },
-  { src: TropicalTea, alt: 'Tropical Ceylon Tea', name: 'Tropical Ceylon Tea' },
+  { src: SLT, alt: 'SLT Mobitel', name: 'SLT Mobitel' },
+  { src: TropicalTea, alt: 'Tropical Ceylon', name: 'Tropical Ceylon' },
   { src: Haycolor, alt: 'Haycolor', name: 'Haycolor' },
   { src: Pandora, alt: 'Panora', name: 'Panora Eye Hospital' },
-  { src: mmnoorbhoy, alt: 'MMN Noorbhoy', name: 'MMN Noorbhoy' },
-  { src: Titan, alt: 'Tiran Tyres', name: 'Tiran Tyres' },
+  { src: mmnoorbhoy, alt: 'MM Noorbhoy', name: 'MM Noorbhoy' },
+  { src: MAS, alt: 'MAS Technologies ', name: 'MAS Technologies ' },
   { src: Ondera, alt: 'Ovendra Natural Foods', name: 'Ovendra Natural Foods' },
   { src: Rugby, alt: 'Ceylonese Rugby', name: 'Ceylonese Rugby & Football Club' },
   { src: Gmedi, alt: 'Global Medicare', name: 'Global Medicare & Laboratories' },
   { src: Ema, alt: 'Ema Pharma', name: 'Ema Pharma' },
   { src: NB, alt: 'NB Products', name: 'NB Products' },
   { src: LHC, alt: 'LH Consortium', name: 'LH Consortium' },
-  { src: VisionL, alt: 'Vision Lanka', name: 'Vision Lanka Engineering' },
-  { src: Sasra, alt: 'Sahasra Holdings', name: 'Sahasra Holdings' },
+  { src: SBD, alt: 'SBD products (Pvt) Ltd ', name: 'SBD products (Pvt) Ltd ' },
+  { src: Sasra, alt: 'SAHASRA Entrepreneurial Resources Limited', name: 'SAHASRA Entrepreneurial Resources Limited' },
   { src: Nuwani, alt: 'Nuwani Constructions', name: 'Nuwani Constructions' },
   { src: SA, alt: 'Siyarata Ayurveda', name: 'Siyarata Ayurveda' },
-  { src: DTT, alt: 'Dynamic Technologies', name: 'Dynamic Technologies & Transport Division' },
+  { src: ST, alt: 'Sethum Products', name: 'Sethum Products' },
   { src: Udayanga, alt: 'Udaya Industries', name: 'Udaya Industries' },
   { src: LS, alt: 'LS Trading', name: 'LS Trading' },
   { src: NF, alt: 'Nourishing Foods', name: 'Nourishing Foods' },
+  { src: LCP, alt: 'Lizbury confectioneries (Pvt) Ltd', name: 'Lizbury confectioneries (Pvt) Ltd' },
+  { src: KLY, alt: 'Kayak surgi pharma pvt Ltd', name: 'Kayak surgi pharma (Pvt) Ltd' },
+  {src: Dis, alt: 'Desir confectionaries', name: 'Desir confectionaries' },
+  { src: DTY, alt: 'Dharmasiri Tyres', name: 'Dharmasiri Tyres' },
+  { src: DIL, alt: 'Dil Foods Pvt Ltd', name: 'Dil Foods (Pvt) Ltd' },
+  
 ];
 
 // Animation variants

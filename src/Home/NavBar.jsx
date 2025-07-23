@@ -136,7 +136,15 @@ const Navbar = () => {
     { title: "GMP Service", route: "/gmpMain" },
     { title: "HACCP", route: "/hacpMain" },
     { title: "CE Marking", route: "/ceMain" },
-    { title: "FSSC 22000", route: "/fssc22000Main" }, // ✅ Newly added
+    { title: "FSSC 22000", route: "/fssc22000Main" },
+    { title: "Management Services +", 
+      route: "/additional-services",
+    submenu: [
+      { title: "Administration", route: "/administration" },
+      { title: "Human Resources (HR)", route: "/hr" },
+      { title: "Management Review Meetings (MRM)", route: "/mrm" },
+      { title: "Inventory Management", route: "/inventory" },
+    ], },
   ];
 
   return (
@@ -173,7 +181,7 @@ const Navbar = () => {
                   >
                     About
                   </button>
-                  <div className="absolute left-0 top-full bg-white shadow rounded-md invisible opacity-0 group-hover:visible group-hover:opacity-100 transition duration-200 z-50 min-w-[220px]">
+                  <div className="absolute left-0 top-full bg-white shadow rounded-md invisible opacity-0 group-hover:visible group-hover:opacity-100 transition duration-200 z-50 min-w-[150px]">
                     {aboutSubSections.map((item) => (
                       <div
                         key={item.id}
