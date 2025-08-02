@@ -6,14 +6,8 @@ export default {
   ],
   theme: {
     extend: {
-      keyframes: {
-        scrollLTR: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(100%)' },
-        },
-      },
-      animation: {
-        scrollLTR: 'scrollLTR 25s linear infinite',
+      colors: {
+        primary: "#f2e8cf", 
       },
     },
   },
